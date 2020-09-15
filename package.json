@@ -4,7 +4,9 @@
   "description": "nodejs restapi for reminder app",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "prettier": "prettier --write index.js"
   },
   "repository": {
     "type": "git",
@@ -18,10 +20,10 @@
   "homepage": "https://github.com/umyar/reminder-be#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
     "express": "^4.17.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "prettier": "^2.1.1"
   }
 }
