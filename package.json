@@ -1,0 +1,27 @@
+{
+  "name": "reminder-be",
+  "version": "1.0.0",
+  "description": "nodejs restapi for reminder app",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/umyar/reminder-be.git"
+  },
+  "author": "umyar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/umyar/reminder-be/issues"
+  },
+  "homepage": "https://github.com/umyar/reminder-be#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
