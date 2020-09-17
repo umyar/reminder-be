@@ -1,5 +1,13 @@
 const express = require('express');
 const parser = require('body-parser');
+const mongoose = require('mongoose');
+const secrets = require('./secrets');
+const eventRoutes = require('./routes/eventRoutes');
+
+mongoose.connect(
+  `mongodb+srv://umyar:${secrets.mongoosePassword}@cluster1.hkcyq.mongodb.net/reminder-events`,
+  { useNewUrlParser: true },
+);
 
 const app = express();
 app.use(parser.json());
@@ -18,16 +26,6 @@ app.use((req, res, next) => {
   next();
 });
 
-app.post('/events', function (req, res) {
-  const { title, date, icon } = req.body;
-  console.log(title, date);
-
-  res.json({ status: 'ok', text: 'event saved' });
-});
-
-app.get('/events', function (req, res) {
-  res.type('text/plain');
-  res.send('❤️');
-});
+app.use(eventRoutes);
 
 app.listen(9000, () => console.log('Backend started on 9000 port!'));
