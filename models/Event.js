@@ -7,7 +7,7 @@ const eventSchema = new Schema({
   },
   date: {
     type: String,
-    required: false,
+    required: true,
   },
   icon: {
     type: String,
@@ -15,4 +15,14 @@ const eventSchema = new Schema({
   },
 });
 
-module.exports = model('event', eventSchema);
+eventSchema.method('toClient', function() {
+  const obj = this.toObject();
+
+  obj.id = obj._id;
+  delete obj._id;
+  delete obj.__v;
+
+  return obj;
+});
+
+module.exports = model('Event', eventSchema);
